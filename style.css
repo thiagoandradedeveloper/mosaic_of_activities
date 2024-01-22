@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+:root{ 
+    --size: 300px;
+}
 body {
     display: flex;
     justify-content: center;
@@ -6,17 +9,17 @@ body {
     height: 100dvh;
     overflow: hidden;
 }
-#containerMosaic{
+#containerMosaic{    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 140px 140px;
+    grid-template-rows: calc(50% - 10px) calc(50% - 10px);
     grid-template-areas:
-    "img1 img3 img3 img4 img5"
-    "img2 img3 img3 img6 img6";
-    height: 300px;
-    width: 750px;
-    padding: 30px;
-    padding-bottom: 20px;
+        "img1 img3 img3 img4 img5"
+        "img2 img3 img3 img6 img6";
+    height: var(--size);
+    width: calc(var(--size) * 3 - 120px);
+    padding: 0px;
+    padding-bottom: calc(var(--size) / 15);
     gap: 20px;
     border-radius: 15px;
 
@@ -27,41 +30,41 @@ body {
     #img5{ grid-area: img5 }
     #img6{ grid-area: img6 }
     #img1, #img2, #img3, #img4, #img5, #img6{
-    position: relative;
-    border-radius: 10px;
-    box-shadow: 3px 3px 10px #000;
-    img{
         position: relative;
-        width: 100%;
-        height: 100%;
         border-radius: 10px;
-        z-index: 1;
-    }
-    .cover{
-        position: absolute;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        z-index: 2;
-        background: none;
-        top: 0;
-        left: 0;
-        color: #fff;
-        padding-bottom: 15px;
-        padding-right: 15px;
-        box-sizing: border-box;
-        font-family: "Rubik", sans-serif;
-        font-size: 20px;
-        font-weight: 500;
-        background: linear-gradient(180deg, transparent, rgba(75, 0, 130, 0.4));
-        transition: 0.7s;
-        cursor: pointer;
-    }
-    .cover:hover{
-        opacity: 0;
-    }
+        box-shadow: 3px 3px 10px #000;
+        img{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            z-index: 1;
+        }
+        .cover{
+            position: absolute;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            z-index: 2;
+            background: none;
+            top: 0;
+            left: 0;
+            color: #fff;
+            padding-bottom: calc(var(--size) / 20);
+            padding-right: calc(var(--size) / 20);
+            box-sizing: border-box;
+            font-family: "Rubik", sans-serif;
+            font-size: calc(var(--size) / 15);
+            font-weight: 500;
+            background: linear-gradient(180deg, transparent, rgba(75, 0, 130, 0.4));
+            transition: 0.7s;
+            cursor: pointer;
+        }
+        .cover:hover{
+            opacity: 0;
+        }
     }
 }
